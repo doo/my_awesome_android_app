@@ -36,8 +36,8 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == DOCUMENT_SCANNER_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            val parcelableArrayExtra = data?.getParcelableArrayExtra(DocumentScannerActivity.SNAPPED_PAGE_EXTRA)
-            parcelableArrayExtra?.get(0)?.let { page ->
+            val snappedPagesExtra = data?.getParcelableArrayExtra(DocumentScannerActivity.SNAPPED_PAGE_EXTRA)
+            snappedPagesExtra?.get(0)?.let { page ->
                 processPagePreview(page as Page)
             }
         }
